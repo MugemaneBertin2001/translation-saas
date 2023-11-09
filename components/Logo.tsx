@@ -5,7 +5,7 @@ import Image from "next/image"
 
 function Logo() {
   return (
-    <Link href="https://flowbite.com/" className="flex items-center">
+    <Link href="/" className="flex items-center">
           <Image
             src={logoImage}
             className="h-8 w-10 mr-3"
