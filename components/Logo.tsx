@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import logoImage from "@/Images/logo/download.jpg"
+import logoImage from "@/Images/logo/logo.png"
 import Image from "next/image"
 
 function Logo() {
@@ -8,11 +8,11 @@ function Logo() {
     <Link href="/" className="flex items-center">
           <Image
             src={logoImage}
-            className="h-8 w-10 mr-3"
+            className="h-10 w-10 mr-3"
             alt="Flowbite Logo"
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            PolyglotChat
+            PolygloTalk
           </span>
       </Link>
   )

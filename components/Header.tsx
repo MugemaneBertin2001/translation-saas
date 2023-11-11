@@ -5,11 +5,10 @@ import { DarkModeToggle } from './ui/DarkModeToggle'
 import UserButton from './ui/UserButton'
 import { authOptions } from '@/app/api/auth/[...nextauth]/auth'
 import {getServerSession} from 'next-auth'
-import {MessagesSquareIcon} from 'lucide-react'
-import Link from 'next/link'
-import { Button } from './ui/button'
 import CreateChatButton from './ui/CreateChatButton'
 import ViewChatButton from './ui/ViewChatButton'
+import PricingButton from './ui/PricingButton'
+import { Button } from './ui/button'
 async function Header() {
   const session = await getServerSession(authOptions)
 
@@ -19,12 +18,11 @@ async function Header() {
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Logo />
         <div className="flex md:order-2">
-          <button
-            type="button"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          <Button className='dark:bg-gray-100'
+            
           >
-            Get started
-          </button>
+            Download
+          </Button>
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
@@ -62,9 +60,7 @@ async function Header() {
                   <CreateChatButton />
               </>
             ):(
-              <Link href={"/pricing"}>
-                Pricing
-              </Link>
+              <PricingButton />
             )}
             
             <li>
