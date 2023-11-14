@@ -1,13 +1,17 @@
+
 import React from 'react'
 import Logo from './Logo'
 import { DarkModeToggle } from './ui/DarkModeToggle'
 import UserButton from './ui/UserButton'
 import { authOptions } from '@/app/api/auth/[...nextauth]/auth'
 import {getServerSession} from 'next-auth'
+import {MessagesSquareIcon} from 'lucide-react'
+import Link from 'next/link'
+import { Button } from './ui/button'
+import CreateChatButton from './ui/CreateChatButton'
+import ViewChatButton from './ui/ViewChatButton'
 async function Header() {
   const session = await getServerSession(authOptions)
-  console.log(session)
-
 
   return (
   <header>
@@ -51,15 +55,26 @@ async function Header() {
           id="navbar-sticky"
         >
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            {/* Language select */}
+            {session ?(
+              <>
+                  <ViewChatButton />
+                  <CreateChatButton />
+              </>
+            ):(
+              <Link href={"/pricing"}>
+                Pricing
+              </Link>
+            )}
+            
             <li>
              
                 <DarkModeToggle />
             </li>
-            <li>
-                <UserButton />
-              
-            </li>
-           
+              <li>
+              <UserButton  session={session} />
+            
+          </li>
           </ul>
         </div>
       </div>
